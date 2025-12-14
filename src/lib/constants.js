@@ -8,7 +8,7 @@ export const OS_DEFS = [
   { key: "extra", label: "追加OS（仮）", colorHint: "extra" }
 ];
 
-const BASE_PATH = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+export const BASE_PATH = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
 const withBase = (path) => `${BASE_PATH}${path}`;
 
 export const OS_DATA_PATH = {
