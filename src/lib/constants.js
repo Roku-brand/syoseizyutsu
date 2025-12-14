@@ -9,7 +9,7 @@ export const OS_DEFS = [
 ];
 
 const rawBase = import.meta.env.BASE_URL || "/";
-export const BASE_PATH = rawBase.replace(/\/$/, "") || "/";
+export const BASE_PATH = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 const withBase = (path) => `${BASE_PATH}${path}`;
 
 export const OS_DATA_PATH = {
