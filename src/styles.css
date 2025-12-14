@@ -249,33 +249,33 @@ button, input, select, textarea{ font:inherit; color:inherit; }
 }
 
 .osHeroWrap{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  align-items:stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: stretch;
   margin-bottom: 12px;
 }
 .osHeroCard{
-  flex:1;
+  flex: 1;
   min-width: 260px;
   max-width: 760px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .osNavPanel{
   width: 260px;
   min-width: 240px;
 }
 .osNavGrid{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-top: 8px;
 }
 .osNavBtn{
-  width:100%;
-  text-align:left;
+  width: 100%;
+  text-align: left;
 }
 
 @media (max-width: 860px){
@@ -283,6 +283,6 @@ button, input, select, textarea{ font:inherit; color:inherit; }
     width: 100%;
   }
   .osNavBtn{
-    text-align:center;
+    text-align: center;
   }
 }
