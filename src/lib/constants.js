@@ -8,14 +8,17 @@ export const OS_DEFS = [
   { key: "extra", label: "追加OS（仮）", colorHint: "extra" }
 ];
 
+const BASE_PATH = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+const withBase = (path) => `${BASE_PATH}${path}`;
+
 export const OS_DATA_PATH = {
-  life: "/data/life.json",
-  internal: "/data/internal.json",
-  interpersonal: "/data/relation.json",
-  social: "/data/social.json",
-  action: "/data/action.json",
-  future: "/data/future.json",
-  extra: "/data/extra.json"
+  life: withBase("/data/life.json"),
+  internal: withBase("/data/internal.json"),
+  interpersonal: withBase("/data/relation.json"),
+  social: withBase("/data/social.json"),
+  action: withBase("/data/action.json"),
+  future: withBase("/data/future.json"),
+  extra: withBase("/data/extra.json")
 };
 
 export const TOP_COPY = `情報の洪水に終止符。これが決定版。
