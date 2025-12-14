@@ -2,8 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
+const baseInput = process.env.VITE_BASE_PATH || "/syoseijutsu/";
+const base = baseInput.endsWith("/") ? baseInput : `${baseInput}/`;
+
 export default defineConfig({
-  base: "/syoseijutsu/",
+  base,
   plugins: [
     react(),
     VitePWA({
@@ -13,22 +16,22 @@ export default defineConfig({
         name: "処世術禄（Shoseijutsu OS）",
         short_name: "処世術禄",
         description: "5つのOS・195の項目に集約した処世術の体系書",
-        start_url: "/",
-        scope: "/",
+        start_url: base,
+        scope: base,
         display: "standalone",
         background_color: "#070A12",
         theme_color: "#070A12",
         icons: [
-          { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
-          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" }
+          { src: `${base}icons/icon-192.png`, sizes: "192x192", type: "image/png" },
+          { src: `${base}icons/icon-512.png`, sizes: "512x512", type: "image/png" }
         ]
       },
       workbox: {
-        navigateFallback: "/index.html",
+        navigateFallback: `${base}index.html`,
         globPatterns: ["**/*.{js,css,html,ico,png,webmanifest,json}"],
         runtimeCaching: [
           {
-            urlPattern: ({ url }) => url.pathname.startsWith("/data/"),
+            urlPattern: ({ url }) => url.pathname.startsWith(`${base}data/`),
             handler: "CacheFirst",
             options: {
               cacheName: "shoseijutsu-data",
