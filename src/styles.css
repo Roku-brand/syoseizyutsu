@@ -247,3 +247,42 @@ button, input, select, textarea{ font:inherit; color:inherit; }
   font-size: 12px;
   line-height: 1.6;
 }
+
+.osHeroWrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:stretch;
+  margin-bottom: 12px;
+}
+.osHeroCard{
+  flex:1;
+  min-width: 260px;
+  max-width: 760px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.osNavPanel{
+  width: 260px;
+  min-width: 240px;
+}
+.osNavGrid{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top: 8px;
+}
+.osNavBtn{
+  width:100%;
+  text-align:left;
+}
+
+@media (max-width: 860px){
+  .osNavPanel{
+    width: 100%;
+  }
+  .osNavBtn{
+    text-align:center;
+  }
+}
