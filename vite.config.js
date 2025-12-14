@@ -2,7 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
-const base = "/syoseijutsu/";
+const baseInput = process.env.BASE_PATH || "/syoseijutsu/";
+const base = baseInput.endsWith("/") ? baseInput : `${baseInput}/`;
 
 export default defineConfig({
   base,
