@@ -49,6 +49,7 @@ export default function OSList({ osKey: propOS, mode }) {
 
   // 人生OS（3D）
   const isLife = osKey === "life" || mode === "spiral";
+  const desc = isLife ? "3D螺旋でカードを選択し、詳細は2Dで閲覧します。" : "一覧・検索・タグフィルタ・ソート（id順）に対応。";
 
   return (
     <div>
@@ -58,6 +59,41 @@ export default function OSList({ osKey: propOS, mode }) {
           <div style={{ fontSize: 20, fontWeight: 740 }}>{osDef.label}</div>
         </div>
         <button className="btn" onClick={() => nav("/")}>Home</button>
+      </div>
+
+      <div className="osHeroWrap">
+        <div className="panel detail osHeroCard">
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center" }}>
+            <div>
+              <div className="sectionTitle" style={{ margin: 0 }}>Overview</div>
+              <div style={{ fontSize: 18, fontWeight: 720 }}>{osDef.label}</div>
+            </div>
+            <span className="kbd" style={{ whiteSpace: "nowrap" }}>{osDef.key}</span>
+          </div>
+          <div className="helpText" style={{ marginTop: 10 }}>
+            {desc}
+          </div>
+        </div>
+
+        <div className="panel detail osNavPanel">
+          <div className="sectionTitle" style={{ margin: 0 }}>OS切り替え</div>
+          <div className="osNavGrid">
+            {OS_DEFS.map((os) => {
+              const path = os.key === "life" ? "/life" : `/os/${os.key}`;
+              const active = os.key === osKey;
+              return (
+                <button
+                  key={os.key}
+                  type="button"
+                  className={`btn osNavBtn ${active ? "primary" : ""}`}
+                  onClick={() => nav(path)}
+                >
+                  {os.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {loading && (
